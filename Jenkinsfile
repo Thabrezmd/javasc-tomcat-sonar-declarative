@@ -47,13 +47,6 @@ pipeline {
                 sh 'mvn package -DskipTests'
             }
         }
-
-           stage('Stage-8 : Deploy an Artifact to Artifactory Manager i.e. Nexus/Jfrog') { 
-            steps {
-                sh 'mvn deploy -DskipTests'
-            }
-        }
-
           stage('Stage-9 : Deployment - Deploy a Artifact devops-3.0.0-SNAPSHOT.war file to Tomcat Server') { 
             steps {
                 sh 'curl -u admin:redhat@123 -T target/**.war "http://54.249.100.182:8080/manager/text/deploy?path=/devops&update=true"'
