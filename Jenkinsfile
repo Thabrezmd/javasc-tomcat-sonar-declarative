@@ -7,7 +7,6 @@ node {
   stage ('Code Quality') {
       sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore sonar:sonar"
   }
-
   stage ('Clean') {
       sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean"
   }
@@ -17,7 +16,6 @@ node {
   stage ('Compile') {
       sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore compile"
   }
-
   stage ('Package') {
       sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore package"
   }
